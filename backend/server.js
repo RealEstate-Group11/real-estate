@@ -1,13 +1,32 @@
-const express=require("express")
-const app=express()
-const mongoose=require("mongoose")
-mongoose.connect('mongodb://0.0.0.0/database',{useNewUrlParser:true})
-mongoose.connection.once('open',()=>{
-    console.log('Connected to db')
-}).on('connectionError',(err)=>{
-    console.log(err)
-})
-app.listen(3003,()=>console.log("server is up at port 3003"))
+const express = require("express")
+const mongoose = require("mongoose")
+const dotenv = require('dotenv')
+const cors = require('cors')
+
+dotenv.config();
+
+const app = express();
+
+app.use(cors());
+
 app.get("/",(req,res)=>{
   res.send("backend works")
 })
+
+
+
+
+
+
+
+mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true, useUnifiedTopology: true} ,
+    () => {
+      console.log("connected to DB");
+    }
+  );
+
+
+
+app.listen(process.env.PORT,()=>{
+  console.log("server is up at port 5000")
+})  
