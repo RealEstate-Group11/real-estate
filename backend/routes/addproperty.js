@@ -2,10 +2,7 @@ const router = require('express').Router();
 const propertModel = require("../models/property-model")
 const bodyParser = require('body-parser');
 
-
 router.use(bodyParser.json())
-
-
 
 router.post("/",(req,res)=>{
     const newProperty =  propertModel({
@@ -53,6 +50,7 @@ router.post("/",(req,res)=>{
         res.send('Property Added')
     }).catch((e)=>{
         console.log(e.message)
+        res.send(e.message)
     })
 
 })
