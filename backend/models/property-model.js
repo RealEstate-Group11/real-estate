@@ -1,5 +1,5 @@
-const mongoose=require("mongoose")
-const propertyschema=mongoose.Schema({
+const mongoose = require("mongoose")
+const propertyschema = new mongoose.Schema({
     propertyType: {
         type: String,
         require: [true, "Please Select Property Type"]
@@ -108,7 +108,6 @@ const propertyschema=mongoose.Schema({
         type: String,
         require: [true, "Please Select PPD Package Type"]
     },
-    // Image uplaod to be added later
     email: {
         type: String,
         require: [true, "Please Add Email"]
