@@ -1,0 +1,41 @@
+const express = require("express");
+const jwt = require("jsonwebtoken")
+const router = express.Router();
+const signupModel = require("../models/signup-model");
+const  PropertyDetailsModel=require("../models/property-model");
+
+router.get("/", (req, res) => {
+    if (req.headers.authorization) {
+        try {
+            user_mail = jwt.verify(req.headers.authorization, process.env.SECRET_KEY);
+            console.log(user_mail)
+            signupModel.find({ email: user_mail }).then((userData) => {
+                if (userData.length) {
+                             PropertyDetailsModel.find().then((propertyData) => {
+                               const value= propertyData.reverse()
+                        res.status(200).send(value)       
+                    })
+                } else {
+                    res.status(403).send("No such user exist with the mentioned email id")
+                }
+            }).catch((err) => {
+                res.status(403).send(err.message)
+            })
+        } catch (err) {
+            res.status(500).send("User not authorized")
+        }
+    } else {
+        res.status(200).send("header is empty please add header")
+    }
+})
+router.get("/search/:id", (req, res) => {
+    PropertyDetailsModel.find({_id:req.params.id}).then((propertyData) => {
+        // console.log(propertyData)
+        res.status(200).send(propertyData)
+    }).catch(err=>{
+        console.log("error occured")
+        res.status(400).send("no id matching with the entered id")
+    })
+})
+
+module.exports = router;

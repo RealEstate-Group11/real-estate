@@ -5,6 +5,7 @@ const cors = require('cors')
 const addProperty = require('./routes/addproperty');
 const loginPage = require('./routes/login');
 const registerPage = require('./routes/register')
+const Getproperty=require('./routes/get')
 dotenv.config();
 const app = express();
 
@@ -43,7 +44,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use("/posts",addProperty);
 app.use('/login',loginPage);
 app.use('/register',registerPage)
-
+app.use('/properties',Getproperty)
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("connected to DB");
