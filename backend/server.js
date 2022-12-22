@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use("/posts",addProperty);
 app.use('/login',loginPage);
 app.use('/register',registerPage)
-app.use('/properties',Getproperty)
+app.use('/getProperty',Getproperty)
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("connected to DB");
