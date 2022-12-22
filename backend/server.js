@@ -8,6 +8,34 @@ const registerPage = require('./routes/register')
 dotenv.config();
 const app = express();
 
+app.use("/posts", (req, res, next) => {
+    try {
+        let token = req.headers.authorization;
+        if (token) {
+            jwt.verify(token, secret, function (err, decoded) {
+                if (err) {
+                    return res.status(403).json({
+                        status: "Failed",
+                        message: err.message
+                    })
+                }
+                req.user = decoded.data
+                next();
+            })
+        } else {
+            return res.status(404).json({
+                status: "Failed",
+                message: "Not authenticated user"
+            })
+        }
+    } catch (e) {
+        res.json({
+            status: "Error",
+            message: e.message
+        })
+    }
+})
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
