@@ -1,30 +1,28 @@
 import "./PropertyView.css"
 // import PropertyList from "./propertylist/PropertyList";
-import Header from "../header/header";
-import SideNavBar from "../asidebar/aside";
+import SideNavBar from "../sidenavbar/SideNavBar";
+import Header from "../headerpage/Header";
 import React, { useState, useEffect } from 'react';
-import SearchRes from "./Search";
-const url = 'https://real-estate-backend-3jtv.onrender.com'
-
+import SearchRes from './SerachRes';
 const PropertyView = ()=>{
+
     const [property, setProperty] = useState([]);
-    const token = localStorage.getItem("authorization");
+    const authToken = localStorage.getItem("authorization");
 
   useEffect(() => {
     async function fetchData() {
-      console.log(url)
-      const response = await fetch(`${url}/properties`,{
+      console.log(authToken)
+      const response = await fetch("https://real-estate-backend-3jtv.onrender.com/properties/",{
         headers: {
-            authorization: token
+            authorization: authToken
         }}); 
-     
+      // console.log(response)
       const data = await response.json(); 
-      console.log(data)
       setProperty(data);
       // console.log(data);
     }
     fetchData()
-  }, [token])
+  }, [authToken])
    
   //console.log(property)
 

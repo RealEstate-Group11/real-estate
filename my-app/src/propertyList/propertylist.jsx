@@ -1,4 +1,4 @@
-import "./propertylist.css"
+import "./PropertyList.css"
 import {FaRegImages} from 'react-icons/fa'
 import {AiFillEye} from 'react-icons/ai';
 import {MdEdit} from 'react-icons/md';
@@ -11,7 +11,7 @@ const PropertyList = ( {propertydetails} )=>{
        <table>
        <thead>     
         <tr className='tablehead' >
-            <th className="thtext ppdidhead">PPD ID</th>
+            <th className="thtext ppdidhead">PPD Id</th>
         
             <th className="thtext">Image</th>
        
@@ -30,12 +30,9 @@ const PropertyList = ( {propertydetails} )=>{
             <th className="thtext actiontxt">Action</th>
         </tr>
         </thead>
-                
-        <tbody>
+        <tbody>   
         {propertydetails.map((propertydata,i) => (
-          <tr className='tabledata' key={i}>
-        {/* <td className="tdtext">{propertydata._id.substr(propertydata._id.length - 7)}</td> */}
-        <td className="tdtext ppdidtxt">{propertydata._id}</td>
+          <tr className='tabledata' key={i}><td className="tdtext ppdidtxt">{propertydata._id}</td>
         <td className="tdtext"><FaRegImages /></td>
         <td className="tdtext">{propertydata.propertyType}</td>
         <td className="tdtext tdmobile">{propertydata.mobile}</td>
@@ -51,19 +48,13 @@ const PropertyList = ( {propertydetails} )=>{
           </div>               
           </td>
         </tr>
-      ))}      
-      </tbody>
+      ))} 
+      </tbody>    
        </table>
+
        </div>
        
         </>
     )
 }
 export default PropertyList
-
-
-const soldstyle={
-  color: '#416899',
-  background: '#F5FAF5',
-
-}

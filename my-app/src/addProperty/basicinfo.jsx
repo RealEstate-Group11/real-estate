@@ -1,4 +1,4 @@
-import "../styles/form.css"
+import '../styles/form.css';
 
 const BasicInfo = ({formData, setFormData}) => {
     console.log(formData);
@@ -11,9 +11,8 @@ const BasicInfo = ({formData, setFormData}) => {
         console.log(formData);
     }
 
-    return(
-        <>
-         <form class='form-container'>
+    return (
+        <form className='form-container'>
             <label className='input-box' htmlFor='propertyType'> Property Type <br/>
                 <select id='propertyType' name='propertyType' onChange={(e) => handleFormData(e)} className='selection-input'>
                     {formData.propertyType === "" ? <option value='Select Property Type'>Select Property Type</option> : 
@@ -43,7 +42,7 @@ const BasicInfo = ({formData, setFormData}) => {
 
             <label className='input-box' htmlFor='propertyDiscription'>Property Discription <br/>
                 <input type='text' id='propertyDiscription' name='propertyDiscription' 
-                onChange={(e) => handleFormData(e)} class='input' value={"" || formData.propertyDiscription}/>
+                onChange={(e) => handleFormData(e)} className='input' value={"" || formData.propertyDiscription}/>
             </label><br/>
 
             <label className='input-box' htmlFor='negotiable'>Negotiable <br/>
@@ -83,8 +82,7 @@ const BasicInfo = ({formData, setFormData}) => {
                 </select>
             </label><br/>
         </form>
-        </>
     )
-}
+};
 
 export default BasicInfo;

@@ -1,14 +1,18 @@
-import BasicInfo from "./basicinfo";
-import PropertDetail from "./propertydetail";
-import LocationInfo from "./location";
-import GeneralInfo from "./generalinfo";
-import { useState } from "react";
+import { useState } from 'react'
+import BasicInfo from './basicInfo';
+import PropertDetail from './propertDetail';
+import GeneralInfo from './generalInfo';
+import LocationInfo from './locationInfo';
 import axios from 'axios'
-const url = process.env.URL
+import '../styles/form.css';
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+    const authToken = localStorage.getItem("authorization")
+    const navigate = useNavigate();
 
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(0);
+
     const [formData, setFormData] = useState({
         propertyType: '',
         price: '',
@@ -46,6 +50,44 @@ const Form = () => {
         latitude: '',
         longitude: ''
     });
+
+    function handlePage() {
+        setPage(page + 1);
+    };
+
+    function handleSubmit() {
+        console.log(formData)
+        axios({
+            url: "https://real-estate-backend-3jtv.onrender.com/properties/posts",
+            method: "POST",
+            headers: {
+                authorization: authToken
+            },
+            data: formData
+        }).then((res) => {
+            alert("added successfully")
+            navigate("/listproperty");
+        })
+    };
+
+    function handelCancel() {
+        navigate("/listproperty")
+    };
+
+    const conditionalComponent = () => {
+        switch (page) {
+            case 0:
+                return <BasicInfo formData={formData} setFormData={setFormData} />;
+            case 1:
+                return <PropertDetail formData={formData} setFormData={setFormData} />;
+            case 2:
+                return <GeneralInfo formData={formData} setFormData={setFormData} />;
+            case 3:
+                return <LocationInfo formData={formData} setFormData={setFormData} />;
+            default:
+                return <BasicInfo formData={formData} setFormData={setFormData} />;
+        }
+    }
 
     const activeSpan = {
         borderRadius: "50%",
@@ -89,33 +131,6 @@ const Form = () => {
         borderColor: "#7fbfff"
     }
 
-    const handleSubmit = () => {
-        axios.post(`${url}/properties/post`, formData).then((res) =>{ 
-            console.log(res);
-            // navigate("/listproperty");
-    })
-    }
-
-    const handlePage = (e) => {
-        e.preventDefault();
-        if (e.target.value === "Previous") setPage(page - 1)
-        else setPage(page + 1)
-    }
-    const conditionalComponent = () => {
-        switch (page) {
-            case 0:
-                return <BasicInfo formData={formData} setFormData={setFormData} />;
-            case 1:
-                return <PropertDetail formData={formData} setFormData={setFormData} />;
-            case 2:
-                return <GeneralInfo formData={formData} setFormData={setFormData} />;
-            case 3:
-                return <LocationInfo formData={formData} setFormData={setFormData} />;
-            default:
-                return <BasicInfo formData={formData} setFormData={setFormData} />;
-        }
-    }
-
     return (
         <>
             <div className='add-property-container'>
@@ -133,12 +148,11 @@ const Form = () => {
                 <div style={{ textAlign: "left" }}>
                     {conditionalComponent()}
                 </div>
-                {page <= 0 ? <button className="btn1">Cancel</button> : <button className="btn1" onClick={(e) => handlePage(e.target.value)}>Previous</button>}
-                {page < 3 ? <button className='btn2 btn1' onClick={(e) => handlePage(e.target.value)}>Save & Continue</button> : <button className='btn2 btn1' onClick={handleSubmit}>Add Property</button>}
+                {page <= 0 ? <button className="btn1" onClick={handelCancel}>Cancel</button> : <button className="btn1" onClick={() => setPage(page - 1)}>Previous</button>}
+                {page < 3 ? <button className='btn2 btn1' onClick={handlePage}>Save & Continue</button> : <button className='btn2 btn1' onClick={handleSubmit}>Add Property</button>}
             </div>
         </>
-    )
+    );
 }
-
 
 export default Form;
