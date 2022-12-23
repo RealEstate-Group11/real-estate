@@ -1,10 +1,9 @@
 import "../propertyList/propertylist.css"
 import PropertyList from "../propertyList/propertylist"
 import { BsSearch ,BsPlus} from "react-icons/bs";
-import AddProperty from "../real-estate/my-app/src/addProperty/main"
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
-
+import AddProperty from "../addProperty/main"
 
 const SearchRes = ({property})=>{
   // const navigate = useNavigate()
