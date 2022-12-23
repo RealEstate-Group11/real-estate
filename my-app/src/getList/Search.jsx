@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsSearch ,BsPlus} from "react-icons/bs";
-import AddProperty from "../addProperty/main";
+import AddProperty from '../addProperty/main';
 import "../propertyList/propertylist.css"
 import PropertyList from "../propertyList/propertylist";
 
@@ -44,7 +44,7 @@ const SearchRes = ({property})=>{
 
 <div className='seracharea'>
         
- <div class="searchbtn">
+ <div className="searchbtn">
    <input type="text" placeholder="Search ppd id" className="isearch" name='id' id='id' onKeyDown={handleDown} onChange={(e) => { handleInputChange(e) }}/>
    <button type="submit" className="isearchbtn" disabled={!isEnabled} onClick={() => handleSearch()} >
    <BsSearch className="btncolor"/>   
