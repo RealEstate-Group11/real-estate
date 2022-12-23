@@ -1,7 +1,7 @@
-import "./Header.css"
+import "./header.css"
 import {CgChevronDown} from  "react-icons/cg";
 import {BiUser} from  "react-icons/bi";
-import Logout from "../logout/logout";
+import Logout from "../../../../logout/logout";
 //import Logout from '../logout/logout'
 
 const Header = ()=>{

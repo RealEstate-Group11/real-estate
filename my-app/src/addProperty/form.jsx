@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import BasicInfo from './basicInfo';
-import PropertDetail from './propertDetail';
-import GeneralInfo from './generalInfo';
-import LocationInfo from './locationInfo';
+import BasicInfo from './basicinfo';
+import PropertDetail from './propertydetail';
+import GeneralInfo from './generalinfo';
+import LocationInfo from './location';
 import axios from 'axios'
 import '../styles/form.css';
 import { useNavigate } from "react-router-dom";

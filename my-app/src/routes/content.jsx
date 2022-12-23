@@ -1,10 +1,10 @@
-import Signin from "../sign-in/signin";
-import Signup from "../sign-up/sign-up";
+import Signin from "../sign-in/signin"
+import Signup from "../sign-up/sign-up"
 import {BrowserRouter,Routes,Route} from "react-router-dom"
-import PropertyView from "../get/PropertyView";
-import AddProperty from "../addProperty/addProperty";
+import PropertyView from "../getList/PropertyView";
 import Logout from "../logout/logout";
-import Proctected from "./Protected";
+import Proctected from "../routes/protected";
+import AddProperty from "../addProperty/main";
 
 const App =()=> {
   return (
