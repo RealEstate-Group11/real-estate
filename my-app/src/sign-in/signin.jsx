@@ -31,9 +31,6 @@ const Signin = () => {
                 }
             }).catch((err) => {
                 alert(err.response.data)
-                if (err.response.data === "email not exist please signup") {
-                    navigate("/signup")
-                }
             })
         } else {
             alert("email can't be empty")
