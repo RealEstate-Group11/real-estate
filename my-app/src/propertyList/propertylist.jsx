@@ -31,9 +31,9 @@ const PropertyList = ( {propertydetails} )=>{
         </tr>
         </thead>
                 
-        {propertydetails.map((propertydata) => (
-          <tbody>
-          <tr className='tabledata'>
+        <tbody>
+        {propertydetails.map((propertydata,i) => (
+          <tr className='tabledata' key={i}>
         {/* <td className="tdtext">{propertydata._id.substr(propertydata._id.length - 7)}</td> */}
         <td className="tdtext ppdidtxt">{propertydata._id}</td>
         <td className="tdtext"><FaRegImages /></td>
@@ -51,8 +51,8 @@ const PropertyList = ( {propertydetails} )=>{
           </div>               
           </td>
         </tr>
-        </tbody>
       ))}      
+      </tbody>
        </table>
        </div>
        

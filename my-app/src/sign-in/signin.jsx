@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {AiOutlineEye,AiOutlineEyeInvisible} from "react-icons/ai"
 import "./signin.css"
 
@@ -13,11 +13,11 @@ const Signin = () => {
         setVisibility(prevVisibility=>!prevVisibility)
     }
    
-    // let navigate = useNavigate()
+    let navigate = useNavigate()
 
-    // const naviSignup = () => {
-    //     navigate("/signup")
-    // }
+    const naviSignup = () => {
+        navigate("/signup")
+    }
     const [signindata, setSignindata] = useState({ email:"", password:"" })
 
     const handleLogin = () => {  
@@ -28,7 +28,6 @@ const Signin = () => {
             data: signindata
         }).then((data) => {   
             console.log(data.data.token)    
-
             if(data.data.token.length>0){
                 console.log("data")
                 localStorage.setItem("authorization", data.data.token);
@@ -41,7 +40,7 @@ const Signin = () => {
         }).catch((err) => {
             alert(err.response.data)
             if(err.response.data==="email not exist please signup"){
-                // navigate("/signup")
+                navigate("/signup")
             }
         
         })

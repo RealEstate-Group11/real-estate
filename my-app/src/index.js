@@ -6,8 +6,8 @@ import './index.css';
 // import AddProperty from './addProperty/main';
 // import Signup from './sign-up/sign-up';
 // import Signin from './sign-in/signin';
-// import PropertyView from './getList/PropertyView';
-import RouteContent from './routes/content';
+import PropertyView from './getList/PropertyView';
+// import RouteContent from './routes/content';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,9 +15,9 @@ root.render(
     {/* <Header /> */}
     {/* <SideNavBar/> */}
   
-    <RouteContent/>
+    {/* <RouteContent/> */}
     {/* <Signup/> */}
     {/* <Signin/> */}
-    {/* <PropertyView/> */}
+    <PropertyView/>
   </React.StrictMode>
 );
