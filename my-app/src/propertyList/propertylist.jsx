@@ -12,7 +12,6 @@ const PropertyList = ({ propertydetails }) => {
   return (
     <>
       <div className='propertycontainer'>
-
         <table>
           <thead>
             <tr className='tablehead' >
