@@ -1,10 +1,12 @@
 import "../propertyList/propertylist.css"
 import PropertyList from "../propertyList/propertylist"
 import { BsSearch, BsPlus } from "react-icons/bs";
+import { BsSearch ,BsPlus} from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import AddProperty from "../addProperty/main";
 
+import AddProperty from "../addProperty/main"
 
 const SearchRes = ({ property }) => {
   const [addinput, setAddInput] = useState();
