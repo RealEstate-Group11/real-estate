@@ -58,7 +58,7 @@ const Signin = () => {
             <div className="logbox">
             <h1 className="logologin">Logo</h1>
             <p  className="paragraph2">Enter your credentials to access your account </p>
-            {/* <form > */}
+
                 <div>
                 <input className="logininput1" placeholder="Email ID" type="text" onChange={(e) => { setSignindata({ ...signindata, email: e.target.value }) }} />
                 </div>
@@ -71,8 +71,6 @@ const Signin = () => {
                 <button className="signin" onClick={handleLogin}>Sign In</button>
                 <p className="account" onClick={naviSignup}>Sign up</p>
                 </div>
-                
-             {/* </form> */}
              <div className="signin-setup">
              <span >Don't have an account?</span>
              <p className="blue" onClick={naviSignup}>Sign up</p>
