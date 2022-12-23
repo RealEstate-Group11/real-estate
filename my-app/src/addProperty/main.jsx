@@ -4,9 +4,12 @@ import Form from "./form";
 import "../styles/form.css"
 
 const AddProperty = () => {
-    const row={
-        display:"flex"
+
+    const subpart = {
+        display: "flex",
+        flexDirection:"row"
     }
+   
     return (
         <>
              <div  className="maincontainer">
@@ -14,13 +17,18 @@ const AddProperty = () => {
        <Header />
        </div>
 
-       <div  className="subpart" style={row}>
+       <div  className={subpart}>
        <div  className="sidenav">
         <SideNavBar />
-       <div className="propertylstpart"> <Form /></div>
+       <div > <Form /></div>
        </div>
        
        </div>
+
+       </div>
+
+       <div className="maincontainer">
+       <Header/>
 
        </div>
         </>

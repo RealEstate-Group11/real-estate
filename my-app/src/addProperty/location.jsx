@@ -15,11 +15,11 @@ const LocationInfo = ({formData, setFormData}) => {
     return (
         <>
         <form class='form-container'>
-            <label className='input-box' for='email'>Email <br/>
+            <label className='input-box' htmlFor='email'>Email <br/>
                 <input type='text' id='email' name='email' placeholder='Email' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.email}/>
             </label><br/>
 
-            <label className='input-box' for='city'>City <br />
+            <label className='input-box' htmlFor='city'>City <br />
                     <select id="city" name="city" onChange={(e) => { handleFormData(e) }} class='selection-input'>
                         {formData.city === "" ? <option value="Select City">Select City</option> : 
                         <option value={formData.city}>{formData.city}</option>}
@@ -27,7 +27,7 @@ const LocationInfo = ({formData, setFormData}) => {
                     </select>
             </label><br />
 
-            <label className='input-box' for='area'>Area <br />
+            <label className='input-box' htmlFor='area'>Area <br />
                     <select id="area" name="area" onChange={(e) => { handleFormData(e) }} class='selection-input'>
                         {formData.area === "" ? <option value="Select Area">Select Area</option> : 
                         <option value={formData.area}>{formData.area}</option>}
@@ -35,23 +35,23 @@ const LocationInfo = ({formData, setFormData}) => {
                     </select>
             </label><br />
 
-            <label className='input-box' for='pincode'>Pincode <br/>
+            <label className='input-box' htmlFor='pincode'>Pincode <br/>
                 <input type='text' id='pincode' name='pincode' placeholder='Example: 220059' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.pincode}/>
             </label><br/>
 
-            <label className='input-box' for='address'>Address <br/>
+            <label className='input-box' htmlFor='address'>Address <br/>
                 <input type='text' id='address' name='address' placeholder='Address' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.address}/>
             </label><br/>
 
-            <label className='input-box' for='landmark'>Landmark <br/>
+            <label className='input-box' htmlFor='landmark'>Landmark <br/>
                 <input type='landmark' id='landmark' name='landmark' placeholder='Landmark' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.landmark}/>
             </label><br/>
 
-            <label className='input-box' for='latitude'>Latitude <br/>
+            <label className='input-box' htmlFor='latitude'>Latitude <br/>
                 <input type='text' id='latitude' name='latitude' placeholder='Latitude' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.latitude}/>
             </label><br/>
 
-            <label className='input-box' for='longitude'>Longitude <br/>
+            <label className='input-box' htmlFor='longitude'>Longitude <br/>
                 <input type='text' id='longitude' name='longitude' placeholder='Longitude' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.longitude}/>
             </label><br/>
         </form>
