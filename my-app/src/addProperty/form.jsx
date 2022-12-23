@@ -8,9 +8,9 @@ import '../styles/form.css';
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+
     const authToken = localStorage.getItem("authorization")
     const navigate = useNavigate();
-
     const [page, setPage] = useState(0);
 
     const [formData, setFormData] = useState({

@@ -2,15 +2,12 @@
 import '../styles/form.css';
 
 const GeneralInfo = ({formData, setFormData}) => {
-
-    console.log(formData);
     const handleFormData = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         setFormData(previousData => {
             return {...previousData, [name]: value}
         });
-        console.log(formData);
     }
 
     return (
