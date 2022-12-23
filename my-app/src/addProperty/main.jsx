@@ -1,20 +1,21 @@
-import Header from "../headerpage/Header";
-import SideNavBar from "../sidenavbar/SideNavBar";
-import Form from "./form";
+import Form from "./form"
+import SideNavBar from "../asidebar/aside";
+import Header from "../header/header";
+
 
 const AddProperty = () => {
     return (
         <>
         <div  className="maincontainer">
        <div  className="sidenav">
-        <SideNavBar />
+        <SideNavBar/>
        </div>
 
        <div  className="subpart">
        <div className="headerpart">
-       <Header />
+      <Header/>
        </div>
-       <div className="propertylstpart"> <Form /></div>
+       <div className="propertylstpart"> <Form/></div>
        
        </div>
 
