@@ -12,7 +12,7 @@ const PropertyView = ()=>{
   useEffect(() => {
     async function fetchData() {
       console.log(authToken)
-      const response = await fetch("https://real-estate-backend-3jtv.onrender.com/properties/",{
+      const response = await fetch("http://localhost:5000/properties/",{
         headers: {
             authorization: authToken
         }}); 

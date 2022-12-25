@@ -58,7 +58,7 @@ const Form = () => {
     function handleSubmit() {
         console.log(formData)
         axios({
-            url: "https://real-estate-backend-3jtv.onrender.com/properties/posts",
+            url: "http://localhost:5000/properties/posts",
             method: "POST",
             headers: {
                 authorization: authToken

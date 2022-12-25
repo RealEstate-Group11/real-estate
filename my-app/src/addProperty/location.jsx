@@ -17,7 +17,7 @@ const LocationInfo = ({formData, setFormData}) => {
         <>
         <form className='form-container'>
             <label className='input-box' htmlFor='email'>Email <br/>
-                <input type='text' id='email' name='email' placeholder='Email' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.email}/>
+                <input type='text' id='email' name='email' placeholder='Email' onChange={(e) => {handleFormData(e)}} className='input' value={"" || formData.email}/>
             </label><br/>
 
             <label className='input-box' htmlFor='city'>City <br />
@@ -37,7 +37,7 @@ const LocationInfo = ({formData, setFormData}) => {
             </label><br />
 
             <label className='input-box' htmlFor='pincode'>Pincode <br/>
-                <input type='text' id='pincode' name='pincode' placeholder='Example: 220059' onChange={(e) => {handleFormData(e)}} class='input' value={"" || formData.pincode}/>
+                <input type='text' id='pincode' name='pincode' placeholder='Example: 220059' onChange={(e) => {handleFormData(e)}} className='input' value={"" || formData.pincode}/>
             </label><br/>
 
             <label className='input-box' htmlFor='address'>Address <br/>

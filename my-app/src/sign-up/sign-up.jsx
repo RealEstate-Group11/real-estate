@@ -10,7 +10,7 @@ const Signup = () => {
     const handleSignup = () => {
         if (signupData.password === signupData.confirmpassword && signupData.password.length > 0 && signupData.email.length > 0 && (validator.isEmail(signupData.email))) {
             axios({
-                url: "https://real-estate-backend-3jtv.onrender.com/register",
+                url: "http://localhost:5000/register",
                 method: "POST",
                 data: signupData,
             }).then((res) => {
