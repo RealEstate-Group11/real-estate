@@ -51,7 +51,6 @@ const Signup = () => {
                     <input className="signup-input" type="password" required placeholder=" Confirm password" id=" confirm password" onChange={(e) => { setSignupData({ ...signupData, confirmpassword: e.target.value }) }} />
                 </div>
                 <button className="sign" onClick={() => { handleSignup() }}>Sign Up</button>
-
             </div>
             <p className="foot" onClick={navisignin}>Sign-in</p>
         </div>

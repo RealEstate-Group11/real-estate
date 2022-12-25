@@ -27,7 +27,6 @@ router.post("/", async (req, res) => {
     }
 })
 
-
 router.post('/logout',async(req,res)=>{
     token = "";
     res.status(200).send("loggedout successfully")
